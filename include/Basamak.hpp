@@ -15,8 +15,6 @@ public:
     int basamak;
     Basamak* next;
     Basamak* prev;
-    
-    void printadress();
 };
 
 

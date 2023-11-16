@@ -13,6 +13,7 @@ public:
 
     Sayi* getter();
     void add(Sayi* sayi);
+    void removeMax(SayilarListesi* baslangic);
 
     SayilarListesi* next;
     SayilarListesi* prev;

@@ -27,8 +27,14 @@ int main()
                 sayi->add(digit);
             }
             sayilar->add(sayi);
-            cout << *sayi;
+            // cout << *sayi;
         }
+        cout << *sayilar;
+        sayilar->removeMax(sayilar);
+        sayilar->removeMax(sayilar);
+        sayilar->removeMax(sayilar);
+        sayilar->removeMax(sayilar);
+        cout << *sayilar;
         // cout << "1. Tek Basamaklari Basa Al" << endl;
         // cout << "2. Basamaklari Tersle" << endl;
         // cout << "3. En buyuk cikar" << endl;
