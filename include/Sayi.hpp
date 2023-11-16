@@ -16,7 +16,7 @@ public:
     ~Sayi();
     Basamak* getter();
     void add(string veri);
-    string deneme;
+    int basamak_count();
 
     Sayi* next;
     Sayi* prev;

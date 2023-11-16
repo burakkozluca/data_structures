@@ -33,9 +33,8 @@ ostream& operator<<(ostream& os, SayilarListesi& sayilarlistesi)
 {
     os << "Sayilar Listesi: " << endl;
 
-    //cout << *(sayilarlistesi.getter());
     Sayi* iter = sayilarlistesi.getter();
-    while(iter != 0)
+    while(iter != nullptr)
     {
         os << iter->getter();
         iter = iter->next;

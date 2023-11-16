@@ -15,7 +15,9 @@ public:
     string basamak;
     Basamak* next;
     Basamak* prev;
+    void printadress();
 };
+
 
 
 

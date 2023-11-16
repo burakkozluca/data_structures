@@ -3,7 +3,6 @@
 
 #include "Sayi.hpp"
 
-
 class SayilarListesi
 {
 private:
@@ -14,6 +13,9 @@ public:
 
     Sayi* getter();
     void add(Sayi* sayi);
+
+    SayilarListesi* next;
+    SayilarListesi* prev;
 };
 
 ostream& operator<<(ostream& os, SayilarListesi& sayilarlistesi); 
