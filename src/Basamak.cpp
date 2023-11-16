@@ -1,9 +1,9 @@
 #include "../include/Basamak.hpp"
 
-Basamak::Basamak(string sayi)
+Basamak::Basamak(int sayi)
 {
     this->basamak = sayi;
 
-    //next = 0;
-    //prev = 0;
+    next = 0;
+    prev = 0;
 }

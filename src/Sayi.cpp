@@ -27,7 +27,7 @@ int Sayi::basamak_count()
     return count;
 }
 
-void Sayi::add(string veri)
+void Sayi::add(int veri)
 {
     Basamak* basamak = new Basamak(veri);
     if(first == 0)
@@ -54,23 +54,28 @@ ostream& operator<<(ostream& os, Sayi& sayi)
     int dugumSayisi = sayi.basamak_count();
     std::stringstream ss,bb;
     ss << &sayi;
+    std::string addressString = ss.str();
+    std::string lasteightDigits = addressString.substr(addressString.length() - 8);
     os << "##########  ";
     for (int i = 0; i < dugumSayisi; i++) {os << "******* ";} os<<endl;
-    os << "#" << ss.str().substr(3, 8) <<"# ";
+    os << "#" << lasteightDigits <<"# ";
     temp = iter;
     for (int i = 0; i < dugumSayisi; i++) {
         bb << &iter->basamak;
-        os << " * " <<bb.str().substr(11,3) << " *";
+        std::string addressString = bb.str();
+        std::string lastThreeDigits = addressString.substr(addressString.length() - 3);
+        os << " * " << lastThreeDigits << " *";
+        // std::cout <<"  Adres:  " <<std::hex << std::setw(3)<< &iter->basamak << std::endl;
         if(iter->next != 0)
             iter = iter->next;
-            // std::cout << bb.str() << std::endl;
-        } os<<endl;
+    } os<<endl;
     iter = temp;
     os << "#--------#  ";
     for (int i = 0; i < dugumSayisi; i++) {os << "******* ";} os<<endl;
     temp = iter;
     os << "#"<< setw(9-dugumSayisi); while(iter != 0){os<<iter->basamak; iter = iter->next;} os <<"# ";
-    while(temp != 0){os << " *   " << temp->basamak << " *"; temp = temp->next;}
+    iter = temp;
+    while(iter != 0){os << " *   " << iter->basamak << " *"; iter = iter->next;}
     os <<endl<< "##########  ";
     for (int i = 0; i < dugumSayisi; i++) {os << "******* ";} os<<endl;
     // while (iter != 0)

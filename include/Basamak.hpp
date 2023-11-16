@@ -9,12 +9,13 @@ using namespace std;
 class Basamak
 {
 public:
-    Basamak(string sayi);
+    Basamak(int sayi);
     ~Basamak();
 
-    string basamak;
+    int basamak;
     Basamak* next;
     Basamak* prev;
+    
     void printadress();
 };
 

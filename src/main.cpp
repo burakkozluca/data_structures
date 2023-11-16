@@ -23,8 +23,8 @@ int main()
 
             for (size_t i = 0; i < number.size(); ++i)
             {
-                string digitString(1, number[i]);
-                sayi->add(digitString);
+                int digit = number[i] - '0'; 
+                sayi->add(digit);
             }
             sayilar->add(sayi);
             cout << *sayi;
