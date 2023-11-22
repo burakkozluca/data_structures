@@ -20,16 +20,17 @@ int main()
         while(getline(str, number, ' '))
         {
             Sayi* sayi = new Sayi();
-
+            sayi->sayi = stoi(number);
             for (size_t i = 0; i < number.size(); ++i)
             {
                 int digit = number[i] - '0'; 
-                sayi->add(digit);
+                sayi->add(digit); 
             }
             sayilar->add(sayi);
-            // cout << *sayi;
+            // std::cout << sayi->sayi << std::endl;
         }
         cout << *sayilar;
+        sayilar->removeMax(sayilar);
         sayilar->removeMax(sayilar);
         sayilar->removeMax(sayilar);
         sayilar->removeMax(sayilar);

@@ -26,35 +26,17 @@ void SayilarListesi::add(Sayi *sayi)
 
 void SayilarListesi::removeMax(SayilarListesi* baslangic)
 {
+    //en büyük elemanı silmek için sayi classına number ekle
+    //bu sayede basamaklarla uğraşmamız oluruz.
     Sayi* iter = baslangic->getter();
     Sayi* max = iter;
-    while(iter != 0)
+    while (iter != nullptr)
     {
-        Basamak* B_iter = iter->getter();
-        Basamak* B_max = B_iter;
-        std::cout << "iter->basamak_count(): " << iter->basamak_count() << std::endl;
-        std::cout << "max->basamak_count():  " << max->basamak_count() << std::endl;
-        if(iter->basamak_count() > max->basamak_count())
+        if (iter->sayi > max->sayi)
             max = iter;
-        else if(iter->basamak_count() == max->basamak_count())
-        {   
-            // std::cout << "B_iter->basamak: " << B_iter->basamak << std::endl;
-            while(B_iter != 0)
-            {
-                std::cout << "B_iter->basamak: " << B_iter->basamak << std::endl;
-                std::cout << "B_max->basamak:  " << B_max->basamak << std::endl;
-                if(B_iter->basamak > B_max->basamak){
-                    max = iter; std::cout<< "girdiiiiii" <<std::endl;}
-                else if(B_iter->basamak == B_max->basamak)
-                {
-                    std::cout << "girdi" << std::endl;
-                    B_iter = B_iter->next;
-                    B_max = B_max->next;
-                }
-                else
-                    B_iter = B_iter->next;
-            }
-        }
+        else if (iter->sayi == max->sayi && iter->basamak_count() > max->basamak_count())
+            max = iter;
+
         iter = iter->next;
     }
     if(max->prev == 0)
@@ -68,7 +50,7 @@ void SayilarListesi::removeMax(SayilarListesi* baslangic)
         }
     }
     else
-    {   std::cout  << "sildi"<< std::endl;
+    {
         if(max->next == 0)
             max->prev->next = 0;
         else

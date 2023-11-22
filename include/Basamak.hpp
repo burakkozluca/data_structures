@@ -17,7 +17,4 @@ public:
     Basamak* prev;
 };
 
-
-
-
 #endif

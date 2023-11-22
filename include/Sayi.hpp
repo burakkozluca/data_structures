@@ -17,6 +17,7 @@ public:
     Basamak* getter();
     void add(int veri);
     int basamak_count();
+    int sayi;
 
     Sayi* next;
     Sayi* prev;
