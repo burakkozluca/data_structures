@@ -61,10 +61,74 @@ void SayilarListesi::removeMax(SayilarListesi* baslangic)
     }
 }
 
+void SayilarListesi::shiftSingleDigitsToLeft(SayilarListesi* baslangic){
+    Sayi* iter = baslangic->getter();
+
+    while(iter != nullptr){
+        // std::cout << *iter << std::endl;
+        Basamak* current = iter->getter();
+        if(iter->basamak_count() == 1){
+            std::cout << "Sayı zaten tek basamaklı" << std::endl;
+        }
+        else{
+            current = current->next; //2. düğüme geç
+            while(current != nullptr){
+                std::cout << "Current: " << current->basamak << " Prev: " << current->prev->basamak << std::endl;
+                if(current->basamak % 2 == 1 && current->prev->basamak % 2 == 0){
+                    std::cout << "Tek basamaklı sayı bulundu: " << current->basamak << std::endl;
+                    //swapNodes current, current->prev
+                    if(iter->basamak_count() == 2)
+                    {
+                        
+                    }
+                }
+                current = current->next;
+            }
+        }
+        iter = iter->next;
+    }
+}
+
+// void swapNodes(Basamak* node1, Basamak* node2) {
+//     // Node1 ve Node2'nin yerlerini değiştir
+//     if (node1 == nullptr || node2 == nullptr) {
+//         std::cout << "Hatalı düğüm!" << std::endl;
+//         return;
+//     }
+
+//     // Node1'in önceki düğümünü güncelle
+//     if (node1->prev != nullptr) {
+//         node1->prev->next = node2;
+//     } else {
+//         // Node1 başlangıç düğümü ise, başlangıcı güncelle
+//         baslangic = node2;
+//     }
+
+//     // Node2'nin önceki düğümünü güncelle
+//     if (node2->prev != nullptr) {
+//         node2->prev->next = node1;
+//     } else {
+//         // Node2 başlangıç düğümü ise, başlangıcı güncelle
+//         baslangic = node1;
+//     }
+
+//     // Node1 ve Node2'nin birbirine bağlı olan next ve prev referanslarını değiştir
+//     Basamak* temp = node1->next;
+//     node1->next = node2->next;
+//     node2->next = temp;
+
+//     temp = node1->prev;
+//     node1->prev = node2->prev;
+//     node2->prev = temp;
+// }
+
+
+
 Sayi* SayilarListesi::getter()
 {
     return first;
 }
+
 
 ostream& operator<<(ostream& os, SayilarListesi& sayilarlistesi)
 {

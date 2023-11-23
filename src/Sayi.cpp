@@ -46,6 +46,10 @@ Basamak* Sayi::getter()
 {
     return first;
 }
+void Sayi::setter(Basamak* newFirst)
+{
+    first = newFirst;
+}
 
 ostream& operator<<(ostream& os, Sayi& sayi)
 {

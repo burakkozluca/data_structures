@@ -14,6 +14,8 @@ public:
     Sayi* getter();
     void add(Sayi* sayi);
     void removeMax(SayilarListesi* baslangic);
+    void swapNodes(Basamak* node1, Basamak* node2);
+    void shiftSingleDigitsToLeft(SayilarListesi* baslangic);
 
     SayilarListesi* next;
     SayilarListesi* prev;

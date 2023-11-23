@@ -15,6 +15,7 @@ public:
     Sayi();
     ~Sayi();
     Basamak* getter();
+    void setter(Basamak* basamak);
     void add(int veri);
     int basamak_count();
     int sayi;

@@ -29,13 +29,14 @@ int main()
             sayilar->add(sayi);
             // std::cout << sayi->sayi << std::endl;
         }
-        cout << *sayilar;
-        sayilar->removeMax(sayilar);
-        sayilar->removeMax(sayilar);
-        sayilar->removeMax(sayilar);
-        sayilar->removeMax(sayilar);
-        sayilar->removeMax(sayilar);
-        cout << *sayilar;
+        // cout << *sayilar;
+        sayilar->shiftSingleDigitsToLeft(sayilar);
+        // sayilar->removeMax(sayilar);
+        // sayilar->removeMax(sayilar);
+        // sayilar->removeMax(sayilar);
+        // sayilar->removeMax(sayilar);
+        // sayilar->removeMax(sayilar);
+        // cout << *sayilar;
         // cout << "1. Tek Basamaklari Basa Al" << endl;
         // cout << "2. Basamaklari Tersle" << endl;
         // cout << "3. En buyuk cikar" << endl;
