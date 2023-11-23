@@ -29,8 +29,9 @@ int main()
             sayilar->add(sayi);
             // std::cout << sayi->sayi << std::endl;
         }
-        // cout << *sayilar;
+        cout << *sayilar;
         sayilar->shiftSingleDigitsToLeft(sayilar);
+        cout << *sayilar;
         // sayilar->removeMax(sayilar);
         // sayilar->removeMax(sayilar);
         // sayilar->removeMax(sayilar);

@@ -73,13 +73,37 @@ void SayilarListesi::shiftSingleDigitsToLeft(SayilarListesi* baslangic){
         else{
             current = current->next; //2. düğüme geç
             while(current != nullptr){
-                std::cout << "Current: " << current->basamak << " Prev: " << current->prev->basamak << std::endl;
+                //std::cout << "Current: " << current->basamak << " Prev: " << current->prev->basamak << std::endl;
                 if(current->basamak % 2 == 1 && current->prev->basamak % 2 == 0){
                     std::cout << "Tek basamaklı sayı bulundu: " << current->basamak << std::endl;
-                    //swapNodes current, current->prev
-                    if(iter->basamak_count() == 2)
-                    {
-                        
+                     // Tek basamaklı sayıları sola kaydırmak için düğümleri yer değiştir
+                    Basamak* nextNode = current->next;
+
+                    // current ve prev düğümlerini yer değiştir
+                    if (current->prev->prev != nullptr) {
+                        current->prev->prev->next = current;
+                    } else {
+                        // Eğer current düğümü listenin başındaysa first'ı güncelle
+                        iter->setter(current);
+                    }
+
+                    current->prev->next = current->next;  // düzeltme burada
+                    if (current->next != nullptr) {
+                        current->next->prev = current->prev;
+                    }
+
+                    current->next = current->prev;  // düzeltme burada
+                    current->prev = current->prev->prev;
+
+                    if (current->prev != nullptr) {
+                        current->prev->next = current;
+                    } else {
+                        // Eğer current düğümü listenin başındaysa first'ı güncelle
+                        iter->setter(current);
+                    }
+
+                    if (nextNode != nullptr) {
+                        nextNode->prev = current;
                     }
                 }
                 current = current->next;
