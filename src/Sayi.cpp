@@ -42,6 +42,22 @@ void Sayi::add(int veri)
     }
 }
 
+void Sayi::basamaklariYerDegistir() {
+        // Basamakları sondan başa doğru yer değiştir
+        Basamak* prev = nullptr;
+        Basamak* current = first;
+        Basamak* next = nullptr;
+
+        while (current != nullptr) {
+            next = current->next;
+            current->next = prev;
+            prev = current;
+            current = next;
+        }
+
+    first = prev;
+}
+
 Basamak* Sayi::getter()
 {
     return first;

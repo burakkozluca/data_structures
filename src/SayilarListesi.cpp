@@ -113,6 +113,15 @@ void SayilarListesi::shiftSingleDigitsToLeft(SayilarListesi* baslangic){
     }
 }
 
+void SayilarListesi::basamaklariYerDegistirTumSayilar() {
+    Sayi* current = first;
+
+    while (current != nullptr) {
+        current->basamaklariYerDegistir();
+        current = current->next;
+    }
+}
+
 // void swapNodes(Basamak* node1, Basamak* node2) {
 //     // Node1 ve Node2'nin yerlerini değiştir
 //     if (node1 == nullptr || node2 == nullptr) {

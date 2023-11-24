@@ -19,6 +19,7 @@ public:
     void add(int veri);
     int basamak_count();
     int sayi;
+    void basamaklariYerDegistir();
 
     Sayi* next;
     Sayi* prev;

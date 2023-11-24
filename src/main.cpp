@@ -30,7 +30,7 @@ int main()
             // std::cout << sayi->sayi << std::endl;
         }
         cout << *sayilar;
-        sayilar->shiftSingleDigitsToLeft(sayilar);
+        sayilar->basamaklariYerDegistirTumSayilar();
         cout << *sayilar;
         // sayilar->removeMax(sayilar);
         // sayilar->removeMax(sayilar);
