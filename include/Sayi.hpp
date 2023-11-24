@@ -20,6 +20,7 @@ public:
     int basamak_count();
     int sayi;
     void basamaklariYerDegistir();
+    void tekBasamaklariKaydir();
 
     Sayi* next;
     Sayi* prev;

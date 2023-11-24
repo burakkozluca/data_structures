@@ -26,8 +26,6 @@ void SayilarListesi::add(Sayi *sayi)
 
 void SayilarListesi::removeMax(SayilarListesi* baslangic)
 {
-    //en büyük elemanı silmek için sayi classına number ekle
-    //bu sayede basamaklarla uğraşmamız oluruz.
     Sayi* iter = baslangic->getter();
     Sayi* max = iter;
     while (iter != nullptr)
@@ -113,6 +111,14 @@ void SayilarListesi::shiftSingleDigitsToLeft(SayilarListesi* baslangic){
     }
 }
 
+void SayilarListesi::tekBasamaklariKaydirTumSayilar() {
+        Sayi* current = first;
+
+        while (current != nullptr) {
+            current->tekBasamaklariKaydir();
+            current = current->next;
+        }
+}
 void SayilarListesi::basamaklariYerDegistirTumSayilar() {
     Sayi* current = first;
 
@@ -165,15 +171,11 @@ Sayi* SayilarListesi::getter()
 
 ostream& operator<<(ostream& os, SayilarListesi& sayilarlistesi)
 {
-    os << "Sayilar Listesi: " << endl;
-
     Sayi* iter = sayilarlistesi.getter();
     while(iter != nullptr)
     {
         os << *iter;
         iter = iter->next;
-        if(iter != 0)
-            cout << endl;
     }
     return os;
 }

@@ -7,15 +7,16 @@ int main()
 {
     std::cout << "Program başladı" << std::endl;
 
+    int secim;
     ifstream File("Sayilar.txt",ios::in);
     string satir;
+    SayilarListesi* sayilar = new SayilarListesi();
 
     while(getline(File,satir))
     {
         stringstream str(satir);
         string number;
         int secim;
-        SayilarListesi* sayilar = new SayilarListesi();
 
         while(getline(str, number, ' '))
         {
@@ -29,42 +30,38 @@ int main()
             sayilar->add(sayi);
             // std::cout << sayi->sayi << std::endl;
         }
-        cout << *sayilar;
-        sayilar->basamaklariYerDegistirTumSayilar();
-        cout << *sayilar;
-        // sayilar->removeMax(sayilar);
-        // sayilar->removeMax(sayilar);
-        // sayilar->removeMax(sayilar);
-        // sayilar->removeMax(sayilar);
-        // sayilar->removeMax(sayilar);
-        // cout << *sayilar;
-        // cout << "1. Tek Basamaklari Basa Al" << endl;
-        // cout << "2. Basamaklari Tersle" << endl;
-        // cout << "3. En buyuk cikar" << endl;
-        // cout << "4. cikis" << endl;
-        // cin >> secim;
-        // switch (secim) {
-        //     case 1:
-        //         cout << "1. Tek Basamaklari Basa Al" << endl;
-        //         // Fonksiyon çağır veya işlemi gerçekleştir
-        //         break;
-        //     case 2:
-        //         cout << "2. Basamaklari Tersle" << endl;
-        //         // Fonksiyon çağır veya işlemi gerçekleştir
-        //         break;
-        //     case 3:
-        //         cout << "3. En buyuk cikar" << endl;
-        //         // Fonksiyon çağır veya işlemi gerçekleştir
-        //         break;
-        //     case 4:
-        //         cout << "Programdan cikiliyor..." << endl;
-        //         break;
-        //     default:
-        //         cout << "Geçersiz secim! Lutfen tekrar deneyin." << endl;
-        //         break;
-        // }
-        delete sayilar;
+        File.close();
     }
-
-    File.close();
+    while(1){
+        cout << *sayilar;
+        cout << "1. Tek Basamaklari Basa Al" << endl;
+        cout << "2. Basamaklari Tersle" << endl;
+        cout << "3. En buyuk cikar" << endl;
+        cout << "4. cikis" << endl;
+        cin >> secim;
+        switch (secim) {
+            case 1:
+                cout << "1. Tek Basamaklari Basa Al" << endl;
+                sayilar->tekBasamaklariKaydirTumSayilar(); //çiftlerin sirasi değişik oluyor onu düzelt
+                break;
+            case 2:
+                cout << "2. Basamaklari Tersle" << endl;
+                sayilar->basamaklariYerDegistirTumSayilar();
+                break;
+            case 3:
+                cout << "3. En buyuk cikar" << endl;
+                sayilar->removeMax(sayilar);
+                if(sayilar->getter() == 0)
+                    exit(0); //hocanin nasil çıkış yaptığına bak
+                break;
+            case 4:
+                cout << "Programdan cikiliyor..." << endl;
+                exit(0);
+                break;
+            default:
+                cout << "Geçersiz secim! Lutfen tekrar deneyin." << endl;
+                break;
+        }
+    }
+    delete sayilar;
 }

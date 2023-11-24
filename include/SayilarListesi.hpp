@@ -17,6 +17,7 @@ public:
     void swapNodes(Basamak* node1, Basamak* node2);
     void shiftSingleDigitsToLeft(SayilarListesi* baslangic);
     void basamaklariYerDegistirTumSayilar();
+    void tekBasamaklariKaydirTumSayilar();
 
     SayilarListesi* next;
     SayilarListesi* prev;

@@ -58,6 +58,42 @@ void Sayi::basamaklariYerDegistir() {
     first = prev;
 }
 
+void Sayi::tekBasamaklariKaydir() {
+        // Tek basamakları sola, çift basamakları sağa kaydır
+        Basamak* current = first;
+        Basamak* prev = nullptr;
+        Basamak* tekBasamaklar = nullptr;
+        Basamak* sonraki = nullptr;
+
+        while (current != nullptr) {
+            sonraki = current->next;
+
+            if (current->basamak % 2 == 0) {
+                // Tek basamakları sola kaydır
+                current->next = tekBasamaklar;
+                tekBasamaklar = current;
+            } else {
+                // Çift basamakları sağa kaydır
+                current->next = nullptr;
+                if (prev != nullptr) {
+                    prev->next = current;
+                } else {
+                    first = current;
+                }
+                prev = current;
+            }
+
+            current = sonraki;
+        }
+
+        // Tek basamakları sona ekleyerek tamamla
+        if (prev != nullptr) {
+            prev->next = tekBasamaklar;
+        } else {
+            first = tekBasamaklar;
+        }
+}
+
 Basamak* Sayi::getter()
 {
     return first;
