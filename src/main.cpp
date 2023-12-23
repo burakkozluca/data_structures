@@ -41,15 +41,12 @@ int main()
         cin >> secim;
         switch (secim) {
             case 1:
-                cout << "1. Tek Basamaklari Basa Al" << endl;
                 sayilar->tekBasamaklariKaydirTumSayilar(); //çiftlerin sirasi değişik oluyor onu düzelt
                 break;
             case 2:
-                cout << "2. Basamaklari Tersle" << endl;
                 sayilar->basamaklariYerDegistirTumSayilar();
                 break;
             case 3:
-                cout << "3. En buyuk cikar" << endl;
                 sayilar->removeMax(sayilar);
                 if(sayilar->getter() == 0)
                     exit(0); //hocanin nasil çıkış yaptığına bak

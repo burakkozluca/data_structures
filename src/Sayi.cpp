@@ -98,6 +98,7 @@ Basamak* Sayi::getter()
 {
     return first;
 }
+
 void Sayi::setter(Basamak* newFirst)
 {
     first = newFirst;
@@ -121,7 +122,6 @@ ostream& operator<<(ostream& os, Sayi& sayi)
         std::string addressString = bb.str();
         std::string lastThreeDigits = addressString.substr(addressString.length() - 3);
         os << " * " << lastThreeDigits << " *";
-        // std::cout <<"  Adres:  " <<std::hex << std::setw(3)<< &iter->basamak << std::endl;
         if(iter->next != 0)
             iter = iter->next;
     } os<<endl;

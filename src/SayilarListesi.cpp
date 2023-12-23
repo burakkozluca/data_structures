@@ -59,66 +59,15 @@ void SayilarListesi::removeMax(SayilarListesi* baslangic)
     }
 }
 
-void SayilarListesi::shiftSingleDigitsToLeft(SayilarListesi* baslangic){
-    Sayi* iter = baslangic->getter();
+void SayilarListesi::tekBasamaklariKaydirTumSayilar() {
+    Sayi* current = first;
 
-    while(iter != nullptr){
-        // std::cout << *iter << std::endl;
-        Basamak* current = iter->getter();
-        if(iter->basamak_count() == 1){
-            std::cout << "Sayı zaten tek basamaklı" << std::endl;
-        }
-        else{
-            current = current->next; //2. düğüme geç
-            while(current != nullptr){
-                //std::cout << "Current: " << current->basamak << " Prev: " << current->prev->basamak << std::endl;
-                if(current->basamak % 2 == 1 && current->prev->basamak % 2 == 0){
-                    std::cout << "Tek basamaklı sayı bulundu: " << current->basamak << std::endl;
-                     // Tek basamaklı sayıları sola kaydırmak için düğümleri yer değiştir
-                    Basamak* nextNode = current->next;
-
-                    // current ve prev düğümlerini yer değiştir
-                    if (current->prev->prev != nullptr) {
-                        current->prev->prev->next = current;
-                    } else {
-                        // Eğer current düğümü listenin başındaysa first'ı güncelle
-                        iter->setter(current);
-                    }
-
-                    current->prev->next = current->next;  // düzeltme burada
-                    if (current->next != nullptr) {
-                        current->next->prev = current->prev;
-                    }
-
-                    current->next = current->prev;  // düzeltme burada
-                    current->prev = current->prev->prev;
-
-                    if (current->prev != nullptr) {
-                        current->prev->next = current;
-                    } else {
-                        // Eğer current düğümü listenin başındaysa first'ı güncelle
-                        iter->setter(current);
-                    }
-
-                    if (nextNode != nullptr) {
-                        nextNode->prev = current;
-                    }
-                }
-                current = current->next;
-            }
-        }
-        iter = iter->next;
+    while (current != nullptr) {
+        current->tekBasamaklariKaydir();
+        current = current->next;
     }
 }
 
-void SayilarListesi::tekBasamaklariKaydirTumSayilar() {
-        Sayi* current = first;
-
-        while (current != nullptr) {
-            current->tekBasamaklariKaydir();
-            current = current->next;
-        }
-}
 void SayilarListesi::basamaklariYerDegistirTumSayilar() {
     Sayi* current = first;
 
